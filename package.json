@@ -7,7 +7,7 @@
     "build": "npm run generate-schema && npm run build-json && npm run build-library",
     "build-json": "python parse.py",
     "generate-schema": "npx ts-json-schema-generator --path ./typescript-library-types.ts -o schema.json",
-    "build-library": "bun run build-typescript-library.ts"
+    "build-library": "bun run build-typescript-library.ts && bunx prettier emojiMap.ts -w"
   },
   "keywords": [],
   "author": "Mahesh Sundaram mahesh@omkara.dev",

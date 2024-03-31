@@ -5,6 +5,6 @@ data = JSON.stringify(data);
 
 const file = `import type { EmojiMap } from "./types";
 
- export const emojiMap: EmojiMap = ${data};`;
+export const emojiMap: EmojiMap = ${data};`;
 
 Bun.write("./emojiMap.ts", file);
