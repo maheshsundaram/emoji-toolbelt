@@ -49,7 +49,7 @@ def find_version(s: str):
 
 
 def validate_schema(emojiMap) -> None:
-    with open("./schema.json", "r", encoding="utf-8") as file:
+    with open("./parse/schema.json", "r", encoding="utf-8") as file:
         schema = json.load(file)
     try:
         validate(instance=emojiMap, schema=schema)
@@ -61,10 +61,10 @@ def validate_schema(emojiMap) -> None:
 def write_files(emojiMap: Dict[str, Any]) -> None:
     validate_schema(emojiMap)
 
-    with open("./emojiMap.json", "w", encoding="utf-8") as file:
+    with open("./parse/emojiMap.json", "w", encoding="utf-8") as file:
         json.dump(emojiMap, file, ensure_ascii=False, separators=(",", ": "))
 
-    with open("./emojiMapPretty.json", "w", encoding="utf-8") as file:
+    with open("./parse/emojiMapPretty.json", "w", encoding="utf-8") as file:
         json.dump(emojiMap, file, ensure_ascii=False, indent=2)
 
 
@@ -148,6 +148,7 @@ def main():
         data = file.read()
 
     emoji_map = parse_lines(data)
+    # TODO: Don't need humps, just use camelCase from the beginning
     emojiMap = humps.camelize(emoji_map)
 
     write_files(emojiMap)

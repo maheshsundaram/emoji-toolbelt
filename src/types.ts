@@ -1,6 +1,6 @@
-type Status = "fully-qualified" | "minimally-qualified" | "unqualified";
+export type Status = "fully-qualified" | "minimally-qualified" | "unqualified";
 
-type EmojiMapItem = {
+export type EmojiMapItem = {
   hexCodePoints: string;
   status: Status;
   emoji: string;
