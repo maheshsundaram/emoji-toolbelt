@@ -1,0 +1,21 @@
+{
+  "name": "emoji-toolbelt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run generate-schema && npm run build-json && npm run build-library",
+    "build-json": "python parse.py",
+    "generate-schema": "npx ts-json-schema-generator --path ./typescript-library-types.ts -o schema.json",
+    "build-library": "bun run build-typescript-library.ts"
+  },
+  "keywords": [],
+  "author": "Mahesh Sundaram mahesh@omkara.dev",
+  "devDependencies": {
+    "@types/bun": "^1.0.12",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

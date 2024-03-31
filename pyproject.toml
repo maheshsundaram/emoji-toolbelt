@@ -1,0 +1,28 @@
+[project]
+name = "emoji-toolbelt"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Mahesh Sundaram", email = "mahesh@omkara.dev" }
+]
+dependencies = [
+    "jsonschema>=4.21.1",
+    "jsonschema-typed>=0.8.1",
+    "pyhumps>=3.8.0",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/emoji_toolbelt"]
