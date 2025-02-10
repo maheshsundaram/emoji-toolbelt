@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "EmojiMap": {
+      "additionalProperties": {
+        "$ref": "#/definitions/EmojiMapItem"
+      },
+      "type": "object"
+    },
+    "EmojiMapItem": {
+      "additionalProperties": false,
+      "properties": {
+        "baseHex": {
+          "type": "string"
+        },
+        "baseName": {
+          "type": "string"
+        },
+        "emoji": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "hexCodePoints": {
+          "type": "string"
+        },
+        "isBase": {
+          "type": "boolean"
+        },
+        "modifiers": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "1F3FB": {
+                  "type": "string"
+                },
+                "1F3FC": {
+                  "type": "string"
+                },
+                "1F3FD": {
+                  "type": "string"
+                },
+                "1F3FE": {
+                  "type": "string"
+                },
+                "1F3FF": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "1F3FB",
+                "1F3FC",
+                "1F3FD",
+                "1F3FE",
+                "1F3FF"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hexCodePoints",
+        "status",
+        "emoji",
+        "version",
+        "baseName",
+        "fullName",
+        "isBase",
+        "baseHex",
+        "modifiers"
+      ],
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "fully-qualified",
+        "minimally-qualified",
+        "unqualified"
+      ],
+      "type": "string"
+    }
+  }
+}
